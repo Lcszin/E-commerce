@@ -167,17 +167,17 @@ namespace EcommerceCCO2023.Models.Data
             }
             return sucesso;
         }
-        public bool VerificaUsuario(string email, string senha)
+        public bool Login(string email, string senha)
         {
             bool verificado = false;
             // declarar a string SQL para fazer a consulta
             // dos dados do cliente pelo seu id
-            string verifica = "SELECT idCliente FROM clientes " +
+            string verificador = "SELECT idCliente FROM clientes " +
                 "WHERE email = '" + email + "' AND senha = '" + senha + "'";
             // Conexão com  o BD
             SqlConnection conexaoBD = Data.ConectarBancoDados();
             // Comando que executa o SQL no BD
-            SqlCommand cmd = new SqlCommand(verifica, conexaoBD);
+            SqlCommand cmd = new SqlCommand(verificador, conexaoBD);
             SqlDataReader reader = cmd.ExecuteReader();
             if (reader.Read())
             {
